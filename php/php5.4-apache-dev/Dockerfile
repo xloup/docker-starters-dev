@@ -14,7 +14,11 @@ RUN apt-get install -y curl
 RUN curl --silent --location https://deb.nodesource.com/setup_0.12 | bash -
 RUN apt-get install --yes nodejs
 RUN apt-get install -y build-essential
-RUN apt-get install --yes nodejs-legacy
+
+RUN apt-get update
+RUN apt-get -y upgrade
+#RUN apt-get install --yes nodejs-legacy
+
 RUN apt-get install -y ruby
 RUN gem install sass
 
@@ -30,5 +34,5 @@ WORKDIR ${app_dir}
 
 
 #initialize 
-RUN npm install
-RUN bower --config.interactive=false --allow-root install
+#RUN npm install
+#RUN bower --config.interactive=false --allow-root install
