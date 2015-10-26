@@ -1,0 +1,15 @@
+
+//http://stackoverflow.com/questions/23448256/gulp-livereload-for-php-files-wontt-refresh-browser
+gulp.task('watch', function(){
+
+    var server = livereload();
+    gulp.watch('**/*.php').on('change', function(file) {
+          server.changed(file.path);
+          util.log(util.colors.yellow('PHP file changed' + ' (' + file.path + ')'));
+      });
+
+    //gulp.watch("assets/scss/**/*.scss", ['sass']);              // Watch and run sass on changes
+    //gulp.watch("assets/js/_*.js", ['javascripts']);             // Watch and run javascripts on changes
+    //gulp.watch("assets/img/*", ['imagemin', 'svgmin']);     // Watch and minify images on changes
+
+});
